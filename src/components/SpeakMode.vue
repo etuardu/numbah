@@ -62,6 +62,21 @@ function startListening() {
 
 function checkAnswer(text) {
   lastAnswer.value = text
+
+  // Handle numeric speech input (e.g., "9" instead of "девять")
+  const numericInput = parseInt(text.replace(/\s/g, ''), 10)
+  if (!isNaN(numericInput) && numericInput === store.currentNumber) {
+    feedback.value = 'correct'
+    store.submitAnswer(store.currentNumber)
+    setTimeout(() => {
+      feedback.value = null
+      lastAnswer.value = ''
+      interimText.value = ''
+      store.generateNumber()
+    }, 1500)
+    return
+  }
+
   const normalized = normalizeRussian(text)
   const expected = normalizeRussian(expectedText.value)
   if (normalized === expected) {
