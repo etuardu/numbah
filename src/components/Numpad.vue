@@ -59,7 +59,7 @@ defineExpose({ reset })
   font-size: 2rem;
   font-weight: bold;
   padding: 1rem;
-  min-height: 3.5rem;
+  height: 4.5rem;
   border: 2px solid #eee;
   border-radius: 8px;
   margin-bottom: 1rem;
