@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch, onBeforeUnmount } from 'vue'
+import { ref, computed, watch, onBeforeUnmount, nextTick } from 'vue'
 import { useGameStore } from '../stores/gameStore'
 import { numberToRussian } from '../utils/russianNumbers'
 import { speakRussian } from '../utils/tts'
@@ -25,6 +25,8 @@ watch(
     }
     const url = await speakRussian(numberToRussian(num))
     audioUrl.value = url
+    await nextTick()
+    playAudio()
   },
   { immediate: true },
 )
