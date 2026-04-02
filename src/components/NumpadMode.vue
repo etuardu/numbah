@@ -13,6 +13,7 @@ const audioUrl = ref(null)
 const audioEl = ref(null)
 
 const expectedText = computed(() => numberToRussian(store.currentNumber))
+const targetDigits = computed(() => String(store.currentNumber).length)
 
 watch(
   () => store.currentNumber,
@@ -69,7 +70,7 @@ function handleSubmit(userAnswer) {
       Incorrect! The answer was: {{ store.currentNumber }}
     </div>
 
-    <Numpad v-if="!feedback" ref="numpadRef" @submit="handleSubmit" />
+    <Numpad v-if="!feedback" ref="numpadRef" :target-digits="targetDigits" @submit="handleSubmit" />
   </div>
 </template>
 

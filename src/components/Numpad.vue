@@ -1,25 +1,36 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 defineOptions({ name: 'NumpadInput' })
+
+const props = defineProps({
+  targetDigits: {
+    type: Number,
+    required: true,
+  },
+})
 
 const emit = defineEmits(['submit'])
 
 const display = ref('')
 
+watch(
+  () => props.targetDigits,
+  () => {
+    display.value = ''
+  },
+)
+
 function pressDigit(d) {
   display.value += d
+  if (display.value.length === props.targetDigits) {
+    emit('submit', parseInt(display.value, 10))
+    display.value = ''
+  }
 }
 
 function clearDigit() {
   display.value = display.value.slice(0, -1)
-}
-
-function handleSubmit() {
-  if (display.value.length > 0) {
-    emit('submit', parseInt(display.value, 10))
-    display.value = ''
-  }
 }
 
 function reset() {
@@ -42,8 +53,9 @@ defineExpose({ reset })
       >
         {{ d }}
       </button>
-      <button data-testid="clear-btn" class="action-btn" @click="clearDigit">Clear</button>
-      <button data-testid="submit-btn" class="submit-btn" @click="handleSubmit">Submit</button>
+      <button data-testid="clear-btn" class="action-btn clear-wide" @click="clearDigit">
+        Clear
+      </button>
     </div>
   </div>
 </template>
@@ -84,25 +96,16 @@ defineExpose({ reset })
   background: #eee;
 }
 
-.action-btn,
-.submit-btn {
+.action-btn {
   padding: 1rem;
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
   border: none;
-}
-
-.action-btn {
   background: #eee;
 }
 
-.submit-btn {
-  background: #4a90d9;
-  color: #fff;
-}
-
-.submit-btn:active {
-  background: #3a7bc8;
+.clear-wide {
+  grid-column: span 2;
 }
 </style>
