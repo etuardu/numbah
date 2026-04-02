@@ -73,7 +73,7 @@ function nextGuess() {
   <div class="numpad-mode">
     <div class="text-display">{{ expectedText }}</div>
 
-    <button v-if="audioUrl" class="replay-btn" @click="playAudio">&#128266; Replay</button>
+    <button class="replay-btn" @click="playAudio">&#128266;</button>
 
     <audio v-if="audioUrl" ref="audioEl" :src="audioUrl" />
 
