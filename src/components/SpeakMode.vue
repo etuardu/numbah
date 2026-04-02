@@ -10,71 +10,17 @@ const feedback = ref(null)
 const lastAnswer = ref('')
 const listening = ref(false)
 const interimText = ref('')
-const speechStatus = ref('unknown')
-const speechError = ref('')
 
 const expectedText = computed(() => numberToRussian(store.currentNumber))
 
 let recognition = null
 
-async function checkSpeechAvailability() {
+function startListening() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
   if (!SpeechRecognition) {
-    speechStatus.value = 'unavailable'
-    return false
+    listening.value = false
+    return
   }
-
-  if (typeof SpeechRecognition.available === 'function') {
-    speechStatus.value = 'checking'
-    try {
-      const result = await SpeechRecognition.available({ langs: ['ru-RU'], processLocally: true })
-
-      if (result === 'available') {
-        speechStatus.value = 'available'
-        return true
-      }
-
-      if (result === 'unavailable') {
-        speechStatus.value = 'unavailable'
-        return false
-      }
-
-      if (result === 'downloading') {
-        speechStatus.value = 'installing'
-        const installed = await SpeechRecognition.install({
-          langs: ['ru-RU'],
-          processLocally: true,
-        })
-        if (installed) {
-          speechStatus.value = 'available'
-          return true
-        }
-        speechStatus.value = 'unavailable'
-        return false
-      }
-    } catch {
-      speechStatus.value = 'unavailable'
-      return false
-    }
-  }
-
-  speechStatus.value = 'available'
-  return true
-}
-
-async function startListening() {
-  speechError.value = ''
-
-  if (speechStatus.value === 'unknown') {
-    const ok = await checkSpeechAvailability()
-    if (!ok) return
-  }
-
-  if (speechStatus.value === 'unavailable') return
-  if (speechStatus.value === 'checking' || speechStatus.value === 'installing') return
-
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
-  if (!SpeechRecognition) return
 
   recognition = new SpeechRecognition()
   recognition.lang = 'ru-RU'
@@ -107,17 +53,8 @@ async function startListening() {
     listening.value = false
   }
 
-  recognition.onerror = (event) => {
+  recognition.onerror = () => {
     listening.value = false
-    if (event.error === 'not-allowed') {
-      speechError.value = 'Microphone access denied. Please allow microphone access.'
-    } else if (event.error === 'no-speech') {
-      speechError.value = 'No speech detected. Please try again.'
-    } else if (event.error === 'network') {
-      speechError.value = 'Network error. Please check your connection.'
-    } else {
-      speechError.value = 'Speech recognition error. Please try typing your answer.'
-    }
   }
 
   recognition.start()
@@ -192,26 +129,9 @@ defineExpose({ stopListening })
     <div v-if="!feedback" class="listening-area">
       <p class="instruction">Say the number in Russian</p>
       <p v-if="interimText" class="interim">{{ interimText }}</p>
-      <button
-        class="listen-btn"
-        :disabled="
-          listening ||
-          speechStatus === 'checking' ||
-          speechStatus === 'installing' ||
-          speechStatus === 'unavailable'
-        "
-        @click="startListening"
-      >
-        <template v-if="speechStatus === 'checking'">Checking speech support...</template>
-        <template v-else-if="speechStatus === 'installing'"
-          >Downloading Russian language pack...</template
-        >
-        <template v-else-if="speechStatus === 'unavailable'"
-          >Speech recognition unavailable</template
-        >
-        <template v-else>{{ listening ? 'Listening...' : 'Start Listening' }}</template>
+      <button class="listen-btn" :disabled="listening" @click="startListening">
+        {{ listening ? 'Listening...' : 'Start Listening' }}
       </button>
-      <p v-if="speechError" class="speech-error">{{ speechError }}</p>
     </div>
 
     <button v-if="!feedback" class="skip-btn" @click="handleSkip">Skip / Show Answer</button>
@@ -326,11 +246,5 @@ defineExpose({ stopListening })
   text-decoration: underline;
   cursor: pointer;
   font-size: 0.9rem;
-}
-
-.speech-error {
-  color: #c0392b;
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
 }
 </style>
