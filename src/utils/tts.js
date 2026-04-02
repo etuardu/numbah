@@ -1,5 +1,5 @@
 const API_KEY = import.meta.env.VITE_11LABS_API_KEY || ''
-const VOICE_ID = '21m00Tcm4TlvDq8ikWAM'
+const VOICE_ID = 'JBFqnCBsd6RMkjVDRZzb'
 
 export async function speakRussian(text) {
   if (!API_KEY) return null
