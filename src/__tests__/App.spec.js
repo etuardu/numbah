@@ -1,11 +1,20 @@
-import { describe, it, expect } from 'vitest'
-
+import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
+import { createPinia, setActivePinia } from 'pinia'
 import App from '../App.vue'
 
 describe('App', () => {
-  it('mounts renders properly', () => {
-    const wrapper = mount(App)
-    expect(wrapper.text()).toContain('You did it!')
+  beforeEach(() => {
+    setActivePinia(createPinia())
+    localStorage.clear()
+  })
+
+  it('mounts and renders config screen', () => {
+    const wrapper = mount(App, {
+      global: {
+        plugins: [createPinia()],
+      },
+    })
+    expect(wrapper.text()).toContain('Russian Numbers Trainer')
   })
 })
