@@ -7,6 +7,7 @@ import TextInputFallback from './TextInputFallback.vue'
 const store = useGameStore()
 
 const feedback = ref(null)
+const lastAnswer = ref('')
 const listening = ref(false)
 const interimText = ref('')
 
@@ -60,20 +61,22 @@ function startListening() {
 }
 
 function checkAnswer(text) {
+  lastAnswer.value = text
   const normalized = normalizeRussian(text)
   const expected = normalizeRussian(expectedText.value)
   if (normalized === expected) {
     feedback.value = 'correct'
     store.submitAnswer(store.currentNumber)
+    setTimeout(() => {
+      feedback.value = null
+      lastAnswer.value = ''
+      interimText.value = ''
+      store.generateNumber()
+    }, 1500)
   } else {
     feedback.value = 'incorrect'
     store.submitAnswer(-1)
   }
-  setTimeout(() => {
-    feedback.value = null
-    interimText.value = ''
-    store.generateNumber()
-  }, 1500)
 }
 
 function handleFallbackSubmit(text) {
@@ -81,12 +84,16 @@ function handleFallbackSubmit(text) {
 }
 
 function handleSkip() {
+  lastAnswer.value = ''
   feedback.value = 'incorrect'
   store.skip()
-  setTimeout(() => {
-    feedback.value = null
-    store.generateNumber()
-  }, 1500)
+}
+
+function nextGuess() {
+  feedback.value = null
+  lastAnswer.value = ''
+  interimText.value = ''
+  store.generateNumber()
 }
 
 function stopListening() {
@@ -104,8 +111,19 @@ defineExpose({ stopListening })
     <div class="number-display">{{ store.currentNumber }}</div>
 
     <div v-if="feedback === 'correct'" class="feedback correct">Correct!</div>
-    <div v-else-if="feedback === 'incorrect'" class="feedback incorrect">
-      Incorrect! The answer is: {{ expectedText }}
+
+    <div v-if="feedback === 'incorrect'" class="feedback incorrect">
+      <div class="comparison">
+        <div class="comparison-row">
+          <span class="comparison-label">Your answer:</span>
+          <span class="comparison-value">{{ lastAnswer || '(skipped)' }}</span>
+        </div>
+        <div class="comparison-row">
+          <span class="comparison-label">Correct:</span>
+          <span class="comparison-value">{{ expectedText }}</span>
+        </div>
+      </div>
+      <button class="next-btn" @click="nextGuess">Next &rarr;</button>
     </div>
 
     <div v-if="!feedback" class="listening-area">
@@ -149,6 +167,44 @@ defineExpose({ stopListening })
 .feedback.incorrect {
   background: #f8d7da;
   color: #721c24;
+}
+
+.comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.comparison-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comparison-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.comparison-value {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.next-btn {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #4a90d9;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.next-btn:hover {
+  background: #3a7bc8;
 }
 
 .listening-area {

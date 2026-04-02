@@ -9,6 +9,7 @@ const store = useGameStore()
 const numpadRef = ref(null)
 
 const feedback = ref(null)
+const lastAnswer = ref(null)
 const audioUrl = ref(null)
 const audioEl = ref(null)
 
@@ -42,18 +43,27 @@ onBeforeUnmount(() => {
 })
 
 function handleSubmit(userAnswer) {
+  lastAnswer.value = userAnswer
   if (userAnswer === store.currentNumber) {
     feedback.value = 'correct'
     store.submitAnswer(userAnswer)
+    setTimeout(() => {
+      feedback.value = null
+      lastAnswer.value = null
+      numpadRef.value?.reset()
+      store.generateNumber()
+    }, 1500)
   } else {
     feedback.value = 'incorrect'
     store.submitAnswer(userAnswer)
   }
-  setTimeout(() => {
-    feedback.value = null
-    numpadRef.value?.reset()
-    store.generateNumber()
-  }, 1500)
+}
+
+function nextGuess() {
+  feedback.value = null
+  lastAnswer.value = null
+  numpadRef.value?.reset()
+  store.generateNumber()
 }
 </script>
 
@@ -66,8 +76,19 @@ function handleSubmit(userAnswer) {
     <audio v-if="audioUrl" ref="audioEl" :src="audioUrl" />
 
     <div v-if="feedback === 'correct'" class="feedback correct">Correct!</div>
-    <div v-else-if="feedback === 'incorrect'" class="feedback incorrect">
-      Incorrect! The answer was: {{ store.currentNumber }}
+
+    <div v-if="feedback === 'incorrect'" class="feedback incorrect">
+      <div class="comparison">
+        <div class="comparison-row">
+          <span class="comparison-label">Your answer:</span>
+          <span class="comparison-value">{{ lastAnswer }}</span>
+        </div>
+        <div class="comparison-row">
+          <span class="comparison-label">Correct:</span>
+          <span class="comparison-value">{{ store.currentNumber }}</span>
+        </div>
+      </div>
+      <button class="next-btn" @click="nextGuess">Next &rarr;</button>
     </div>
 
     <Numpad v-if="!feedback" ref="numpadRef" :target-digits="targetDigits" @submit="handleSubmit" />
@@ -102,6 +123,44 @@ function handleSubmit(userAnswer) {
 .feedback.incorrect {
   background: #f8d7da;
   color: #721c24;
+}
+
+.comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.comparison-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comparison-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.comparison-value {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.next-btn {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #4a90d9;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.next-btn:hover {
+  background: #3a7bc8;
 }
 
 .replay-btn {
