@@ -42,3 +42,7 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+# TTS proxy
+.tts_api_key
+.tts_counter

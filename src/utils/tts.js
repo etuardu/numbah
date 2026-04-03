@@ -1,21 +1,11 @@
-const API_KEY = import.meta.env.VITE_11LABS_API_KEY || ''
-const VOICE_ID = 'JBFqnCBsd6RMkjVDRZzb'
+const TTS_ENDPOINT = import.meta.env.VITE_TTS_ENDPOINT || '/numbah/api/tts.php'
 
 export async function speakRussian(text) {
-  if (!API_KEY) return null
-
   try {
-    const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`, {
+    const response = await fetch(TTS_ENDPOINT, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'xi-api-key': API_KEY,
-      },
-      body: JSON.stringify({
-        text,
-        model_id: 'eleven_multilingual_v2',
-        language_code: 'ru',
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text }),
     })
 
     if (!response.ok) return null
