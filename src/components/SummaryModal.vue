@@ -40,7 +40,7 @@ const store = useGameStore()
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(29, 32, 33, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,9 +48,10 @@ const store = useGameStore()
 }
 
 .modal {
-  background: #fff;
-  border-radius: 12px;
-  padding: 2rem;
+  background: #282828;
+  border: 3px solid #665c54;
+  border-radius: 0;
+  padding: 1.5rem;
   text-align: center;
   max-width: 360px;
   width: 90%;
@@ -58,6 +59,9 @@ const store = useGameStore()
 
 .modal h2 {
   margin-bottom: 1.5rem;
+  font-size: 0.7rem;
+  color: #fabd2f;
+  line-height: 1.6;
 }
 
 .stats {
@@ -73,13 +77,15 @@ const store = useGameStore()
 }
 
 .stat-value {
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   font-weight: bold;
+  color: #fabd2f;
 }
 
 .stat-label {
-  font-size: 0.85rem;
-  color: #888;
+  font-size: 0.45rem;
+  color: #928374;
+  margin-top: 0.25rem;
 }
 
 .actions {
@@ -91,19 +97,32 @@ const store = useGameStore()
 .primary-btn,
 .secondary-btn {
   padding: 0.75rem;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
   cursor: pointer;
-  border: none;
+  border: 2px solid;
 }
 
 .primary-btn {
-  background: #27ae60;
-  color: #fff;
+  background: #b8bb26;
+  color: #1d2021;
+  border-color: #b8bb26;
+}
+
+.primary-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .secondary-btn {
-  background: #eee;
-  color: #333;
+  background: #504945;
+  color: #ebdbb2;
+  border-color: #665c54;
+}
+
+.secondary-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 </style>

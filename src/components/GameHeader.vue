@@ -24,34 +24,42 @@ const store = useGameStore()
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid #504945;
 }
 
 .back-btn,
 .end-btn {
-  padding: 0.4rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fff;
+  padding: 0.4rem 0.6rem;
+  border: 2px solid #665c54;
+  border-radius: 0;
+  background: #282828;
+  color: #ebdbb2;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+}
+
+.back-btn:active,
+.end-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .score {
   display: flex;
-  gap: 1rem;
-  font-size: 0.95rem;
+  gap: 0.75rem;
+  font-size: 0.55rem;
 }
 
 .score-correct {
-  color: #27ae60;
+  color: #b8bb26;
 }
 
 .score-incorrect {
-  color: #c0392b;
+  color: #fb4934;
 }
 
 .score-streak {
-  color: #f39c12;
+  color: #fabd2f;
 }
 </style>

@@ -37,17 +37,27 @@ function handleSubmit() {
 .input-field {
   flex: 1;
   padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
+  border: 2px solid #665c54;
+  border-radius: 0;
+  background: #1d2021;
+  color: #ebdbb2;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
 }
 
 .submit-btn {
   padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 6px;
-  background: #27ae60;
-  color: #fff;
+  border: 2px solid #b8bb26;
+  border-radius: 0;
+  background: #b8bb26;
+  color: #1d2021;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
   cursor: pointer;
+}
+
+.submit-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 </style>

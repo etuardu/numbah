@@ -90,17 +90,33 @@ function handleClearAllWeak() {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #333;
-  background: #f5f5f5;
+  font-family: 'Press Start 2P', monospace;
+  color: #ebdbb2;
+  background: #1d2021;
   min-height: 100vh;
+  line-height: 1.6;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 9999;
 }
 
 .app {
   min-height: 100vh;
-  background: #fff;
-  max-width: 600px;
+  background: #282828;
+  max-width: 640px;
   margin: 0 auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 0 #000;
 }
 </style>

@@ -110,21 +110,25 @@ function handleStart() {
 .config-screen {
   max-width: 480px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   text-align: center;
 }
 
 h1 {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: #fabd2f;
+  line-height: 1.6;
 }
 
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 h2 {
   margin-bottom: 0.75rem;
-  font-size: 1.1rem;
+  font-size: 0.6rem;
+  color: #928374;
 }
 
 .presets {
@@ -136,24 +140,30 @@ h2 {
 }
 
 .preset-btn {
-  padding: 0.5rem 1rem;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  background: #fff;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #665c54;
+  border-radius: 0;
+  background: #282828;
+  color: #ebdbb2;
   cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.15s;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+}
+
+.preset-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .preset-btn:disabled {
-  opacity: 0.4;
+  opacity: 0.3;
   cursor: not-allowed;
 }
 
 .preset-btn.active {
-  border-color: #4a90d9;
-  background: #4a90d9;
-  color: #fff;
+  border-color: #83a598;
+  background: #83a598;
+  color: #1d2021;
 }
 
 .custom-range {
@@ -162,23 +172,29 @@ h2 {
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
+  font-size: 0.55rem;
+  color: #928374;
 }
 
 .range-input {
   width: 100px;
   padding: 0.4rem 0.5rem;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
+  border: 2px solid #665c54;
+  border-radius: 0;
+  background: #1d2021;
+  color: #ebdbb2;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
 }
 
 .manage-btn {
   background: none;
   border: none;
-  color: #4a90d9;
+  color: #83a598;
   text-decoration: underline;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
 }
 
 .mode-toggle {
@@ -188,33 +204,44 @@ h2 {
 }
 
 .mode-btn {
-  padding: 0.5rem 1.5rem;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  background: #fff;
+  padding: 0.5rem 1.25rem;
+  border: 2px solid #665c54;
+  border-radius: 0;
+  background: #282828;
+  color: #ebdbb2;
   cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.15s;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+}
+
+.mode-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .mode-btn.active {
-  border-color: #4a90d9;
-  background: #4a90d9;
-  color: #fff;
+  border-color: #83a598;
+  background: #83a598;
+  color: #1d2021;
 }
 
 .start-btn {
   padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 8px;
-  background: #27ae60;
-  color: #fff;
-  font-size: 1.1rem;
+  border: 2px solid #b8bb26;
+  border-radius: 0;
+  background: #b8bb26;
+  color: #1d2021;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.65rem;
   cursor: pointer;
-  transition: background 0.15s;
+}
+
+.start-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .start-btn:hover {
-  background: #219a52;
+  background: #a9b665;
 }
 </style>

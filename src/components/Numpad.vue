@@ -68,13 +68,17 @@ defineExpose({ reset })
 
 .display {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: bold;
   padding: 1rem;
   height: 4.5rem;
-  border: 2px solid #eee;
-  border-radius: 8px;
+  border: 3px solid #665c54;
+  border-radius: 0;
+  background: #1d2021;
+  color: #ebdbb2;
+  font-family: 'Press Start 2P', monospace;
   margin-bottom: 1rem;
+  line-height: 1.4;
 }
 
 .grid {
@@ -85,24 +89,35 @@ defineExpose({ reset })
 
 .digit-btn {
   padding: 1rem;
-  font-size: 1.25rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #fff;
+  font-size: 0.75rem;
+  border: 2px solid #665c54;
+  border-radius: 0;
+  background: #282828;
+  color: #ebdbb2;
+  font-family: 'Press Start 2P', monospace;
   cursor: pointer;
 }
 
 .digit-btn:active {
-  background: #eee;
+  transform: translate(2px, 2px);
+  box-shadow: none;
+  background: #504945;
 }
 
 .action-btn {
   padding: 1rem;
-  font-size: 1rem;
-  border-radius: 8px;
+  font-size: 0.55rem;
+  border-radius: 0;
   cursor: pointer;
-  border: none;
-  background: #eee;
+  border: 2px solid #665c54;
+  background: #504945;
+  color: #ebdbb2;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.action-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .clear-wide {

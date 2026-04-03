@@ -104,27 +104,32 @@ function nextGuess() {
 }
 
 .text-display {
-  font-size: 2rem;
+  font-size: 0.7rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
   min-height: 3rem;
+  color: #fabd2f;
+  line-height: 1.8;
 }
 
 .feedback {
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 0;
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: 0.55rem;
+  line-height: 1.8;
 }
 
 .feedback.correct {
-  background: #d4edda;
-  color: #155724;
+  background: #282828;
+  border: 2px solid #b8bb26;
+  color: #b8bb26;
 }
 
 .feedback.incorrect {
-  background: #f8d7da;
-  color: #721c24;
+  background: #282828;
+  border: 2px solid #fb4934;
+  color: #fb4934;
 }
 
 .comparison {
@@ -132,6 +137,7 @@ function nextGuess() {
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  font-size: 0.55rem;
 }
 
 .comparison-row {
@@ -141,37 +147,46 @@ function nextGuess() {
 }
 
 .comparison-label {
-  font-weight: 500;
-  color: #555;
+  font-weight: 400;
+  color: #928374;
 }
 
 .comparison-value {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 0.65rem;
 }
 
 .next-btn {
-  padding: 0.6rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  background: #4a90d9;
-  color: #fff;
-  font-size: 1rem;
+  padding: 0.6rem 1.25rem;
+  border: 2px solid #83a598;
+  border-radius: 0;
+  background: #83a598;
+  color: #1d2021;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
   cursor: pointer;
   margin-top: 0.5rem;
 }
 
-.next-btn:hover {
-  background: #3a7bc8;
+.next-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .replay-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fff;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #665c54;
+  border-radius: 0;
+  background: #282828;
+  color: #ebdbb2;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.replay-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 </style>

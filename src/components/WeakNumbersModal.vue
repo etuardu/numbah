@@ -55,7 +55,7 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(29, 32, 33, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,8 +63,9 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
 }
 
 .modal {
-  background: #fff;
-  border-radius: 12px;
+  background: #282828;
+  border: 3px solid #665c54;
+  border-radius: 0;
   width: 90%;
   max-width: 400px;
   max-height: 80vh;
@@ -77,12 +78,14 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid #504945;
 }
 
 .modal-header h2 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 0.65rem;
+  color: #fabd2f;
+  line-height: 1.6;
 }
 
 .close-btn {
@@ -92,6 +95,7 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
   cursor: pointer;
   padding: 0 0.25rem;
   line-height: 1;
+  color: #928374;
 }
 
 .modal-body {
@@ -102,8 +106,10 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
 
 .empty-state {
   text-align: center;
-  color: #888;
+  color: #928374;
   padding: 2rem 0;
+  font-size: 0.5rem;
+  line-height: 1.8;
 }
 
 .weak-list {
@@ -117,23 +123,25 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
   align-items: center;
   gap: 0.75rem;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #504945;
+  font-size: 0.5rem;
 }
 
 .weak-num {
   font-weight: bold;
   min-width: 3rem;
+  color: #fabd2f;
 }
 
 .weak-text {
   flex: 1;
-  color: #555;
+  color: #928374;
 }
 
 .delete-btn {
   background: none;
   border: none;
-  color: #c0392b;
+  color: #fb4934;
   font-size: 1.2rem;
   cursor: pointer;
   padding: 0.25rem;
@@ -141,22 +149,25 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
 
 .modal-footer {
   padding: 1rem 1.25rem;
-  border-top: 1px solid #eee;
+  border-top: 2px solid #504945;
   text-align: center;
 }
 
 .clear-all-btn {
   padding: 0.5rem 1.5rem;
-  border: 2px solid #c0392b;
-  border-radius: 6px;
-  background: #fff;
-  color: #c0392b;
+  border: 2px solid #fb4934;
+  border-radius: 0;
+  background: #282828;
+  color: #fb4934;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
 }
 
-.clear-all-btn:hover {
-  background: #c0392b;
-  color: #fff;
+.clear-all-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+  background: #fb4934;
+  color: #1d2021;
 }
 </style>

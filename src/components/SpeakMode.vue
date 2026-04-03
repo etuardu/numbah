@@ -199,26 +199,30 @@ defineExpose({ stopListening })
 }
 
 .number-display {
-  font-size: 4rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+  color: #fabd2f;
 }
 
 .feedback {
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 0;
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: 0.55rem;
+  line-height: 1.8;
 }
 
 .feedback.correct {
-  background: #d4edda;
-  color: #155724;
+  background: #282828;
+  border: 2px solid #b8bb26;
+  color: #b8bb26;
 }
 
 .feedback.incorrect {
-  background: #f8d7da;
-  color: #721c24;
+  background: #282828;
+  border: 2px solid #fb4934;
+  color: #fb4934;
 }
 
 .comparison {
@@ -226,6 +230,7 @@ defineExpose({ stopListening })
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  font-size: 0.55rem;
 }
 
 .comparison-row {
@@ -235,13 +240,13 @@ defineExpose({ stopListening })
 }
 
 .comparison-label {
-  font-weight: 500;
-  color: #555;
+  font-weight: 400;
+  color: #928374;
 }
 
 .comparison-value {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 0.65rem;
 }
 
 .audio-buttons {
@@ -253,36 +258,41 @@ defineExpose({ stopListening })
 }
 
 .audio-btn {
-  padding: 0.4rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fff;
+  padding: 0.4rem 0.6rem;
+  border: 2px solid #665c54;
+  border-radius: 0;
+  background: #282828;
+  color: #ebdbb2;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.45rem;
 }
 
-.audio-btn:hover {
-  background: #f0f0f0;
+.audio-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .audio-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.3;
   cursor: not-allowed;
 }
 
 .next-btn {
-  padding: 0.6rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  background: #4a90d9;
-  color: #fff;
-  font-size: 1rem;
+  padding: 0.6rem 1.25rem;
+  border: 2px solid #83a598;
+  border-radius: 0;
+  background: #83a598;
+  color: #1d2021;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
   cursor: pointer;
   margin-top: 0.5rem;
 }
 
-.next-btn:hover {
-  background: #3a7bc8;
+.next-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .listening-area {
@@ -290,28 +300,36 @@ defineExpose({ stopListening })
 }
 
 .instruction {
-  color: #666;
+  color: #928374;
   margin-bottom: 0.5rem;
+  font-size: 0.55rem;
 }
 
 .interim {
-  color: #999;
+  color: #665c54;
   font-style: italic;
   min-height: 1.5rem;
+  font-size: 0.5rem;
 }
 
 .listen-btn {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background: #4a90d9;
-  color: #fff;
-  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid #83a598;
+  border-radius: 0;
+  background: #83a598;
+  color: #1d2021;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
   cursor: pointer;
 }
 
+.listen-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
 .listen-btn:disabled {
-  opacity: 0.6;
+  opacity: 0.3;
   cursor: not-allowed;
 }
 
@@ -320,9 +338,10 @@ defineExpose({ stopListening })
   margin: 0.5rem auto 1rem;
   background: none;
   border: none;
-  color: #888;
+  color: #928374;
   text-decoration: underline;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
 }
 </style>
