@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useGameStore } from '../stores/gameStore'
 import { numberToRussian, normalizeRussian } from '../utils/russianNumbers'
+import { speakRussian } from '../utils/tts'
 import TextInputFallback from './TextInputFallback.vue'
 
 const store = useGameStore()
@@ -10,6 +11,8 @@ const feedback = ref(null)
 const lastAnswer = ref('')
 const listening = ref(false)
 const interimText = ref('')
+const userAudioLoading = ref(false)
+const correctAudioLoading = ref(false)
 
 const expectedText = computed(() => numberToRussian(store.currentNumber))
 
@@ -60,10 +63,9 @@ function startListening() {
   recognition.start()
 }
 
-function checkAnswer(text) {
+async function checkAnswer(text) {
   lastAnswer.value = text
 
-  // Handle numeric speech input (e.g., "9" instead of "девять")
   const numericInput = parseInt(text.replace(/\s/g, ''), 10)
   if (!isNaN(numericInput) && numericInput === store.currentNumber) {
     feedback.value = 'correct'
@@ -111,6 +113,29 @@ function nextGuess() {
   store.generateNumber()
 }
 
+async function playUserAudio() {
+  if (!lastAnswer.value) return
+  userAudioLoading.value = true
+  const url = await speakRussian(lastAnswer.value)
+  userAudioLoading.value = false
+  if (url) {
+    const audio = new Audio(url)
+    audio.onended = () => URL.revokeObjectURL(url)
+    audio.play()
+  }
+}
+
+async function playCorrectAudio() {
+  correctAudioLoading.value = true
+  const url = await speakRussian(expectedText.value)
+  correctAudioLoading.value = false
+  if (url) {
+    const audio = new Audio(url)
+    audio.onended = () => URL.revokeObjectURL(url)
+    audio.play()
+  }
+}
+
 function stopListening() {
   if (recognition) {
     recognition.stop()
@@ -137,6 +162,18 @@ defineExpose({ stopListening })
           <span class="comparison-label">Correct:</span>
           <span class="comparison-value">{{ expectedText }}</span>
         </div>
+      </div>
+      <div class="audio-buttons">
+        <button
+          class="audio-btn"
+          :disabled="!lastAnswer || userAudioLoading"
+          @click="playUserAudio"
+        >
+          {{ userAudioLoading ? '🔊 Loading...' : '🔊 Your answer' }}
+        </button>
+        <button class="audio-btn" :disabled="correctAudioLoading" @click="playCorrectAudio">
+          {{ correctAudioLoading ? '🔊 Loading...' : '🔊 Correct answer' }}
+        </button>
       </div>
       <button class="next-btn" @click="nextGuess">Next &rarr;</button>
     </div>
@@ -205,6 +242,32 @@ defineExpose({ stopListening })
 .comparison-value {
   font-weight: bold;
   font-size: 1.3rem;
+}
+
+.audio-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.audio-btn {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.audio-btn:hover {
+  background: #f0f0f0;
+}
+
+.audio-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .next-btn {

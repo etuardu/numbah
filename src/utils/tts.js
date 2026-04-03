@@ -14,6 +14,7 @@ export async function speakRussian(text) {
       body: JSON.stringify({
         text,
         model_id: 'eleven_multilingual_v2',
+        language_code: 'ru',
       }),
     })
 
