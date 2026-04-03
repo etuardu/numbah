@@ -1,4 +1,4 @@
-const TTS_ENDPOINT = import.meta.env.VITE_TTS_ENDPOINT || '/numbah/api/tts.php'
+const TTS_ENDPOINT = '/numbah/api/tts.php'
 
 export async function speakRussian(text) {
   try {
