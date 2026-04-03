@@ -36,7 +36,7 @@ const store = useGameStore()
   color: #ebdbb2;
   cursor: pointer;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
 }
 
 .back-btn:active,
@@ -48,7 +48,7 @@ const store = useGameStore()
 .score {
   display: flex;
   gap: 0.75rem;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
 }
 
 .score-correct {

@@ -103,10 +103,10 @@ body::after {
   inset: 0;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.15) 0px,
-    rgba(0, 0, 0, 0.15) 1px,
+    rgba(0, 0, 0, 0.04) 0px,
+    rgba(0, 0, 0, 0.04) 1px,
     transparent 1px,
-    transparent 3px
+    transparent 2px
   );
   pointer-events: none;
   z-index: 9999;

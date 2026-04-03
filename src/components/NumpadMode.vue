@@ -104,7 +104,7 @@ function nextGuess() {
 }
 
 .text-display {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
   min-height: 3rem;
@@ -116,7 +116,7 @@ function nextGuess() {
   padding: 1rem;
   border-radius: 0;
   margin-bottom: 1rem;
-  font-size: 0.55rem;
+  font-size: 0.9rem;
   line-height: 1.8;
 }
 
@@ -137,7 +137,7 @@ function nextGuess() {
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1rem;
-  font-size: 0.55rem;
+  font-size: 0.9rem;
 }
 
 .comparison-row {
@@ -153,7 +153,7 @@ function nextGuess() {
 
 .comparison-value {
   font-weight: bold;
-  font-size: 0.65rem;
+  font-size: 0.85rem;
 }
 
 .next-btn {
@@ -163,7 +163,7 @@ function nextGuess() {
   background: #83a598;
   color: #1d2021;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
+  font-size: 0.9rem;
   cursor: pointer;
   margin-top: 0.5rem;
 }
@@ -181,7 +181,7 @@ function nextGuess() {
   color: #ebdbb2;
   cursor: pointer;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   margin-bottom: 1rem;
 }
 

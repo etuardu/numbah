@@ -42,7 +42,7 @@ function handleSubmit() {
   background: #1d2021;
   color: #ebdbb2;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
 }
 
 .submit-btn {
@@ -52,7 +52,7 @@ function handleSubmit() {
   background: #b8bb26;
   color: #1d2021;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   cursor: pointer;
 }
 

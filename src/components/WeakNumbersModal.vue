@@ -83,7 +83,7 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
 
 .modal-header h2 {
   margin: 0;
-  font-size: 0.65rem;
+  font-size: 0.85rem;
   color: #fabd2f;
   line-height: 1.6;
 }
@@ -108,7 +108,7 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
   text-align: center;
   color: #928374;
   padding: 2rem 0;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   line-height: 1.8;
 }
 
@@ -124,7 +124,7 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
   gap: 0.75rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid #504945;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
 }
 
 .weak-num {
@@ -142,7 +142,7 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
   background: none;
   border: none;
   color: #fb4934;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   padding: 0.25rem;
 }
@@ -161,7 +161,7 @@ const sortedWeakNumbers = computed(() => store.weakNumbers.slice().sort((a, b) =
   color: #fb4934;
   cursor: pointer;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
 }
 
 .clear-all-btn:active {

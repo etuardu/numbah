@@ -116,7 +116,7 @@ function handleStart() {
 
 h1 {
   margin-bottom: 1.5rem;
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   color: #fabd2f;
   line-height: 1.6;
 }
@@ -127,7 +127,7 @@ h1 {
 
 h2 {
   margin-bottom: 0.75rem;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   color: #928374;
 }
 
@@ -147,7 +147,7 @@ h2 {
   color: #ebdbb2;
   cursor: pointer;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
 }
 
 .preset-btn:active {
@@ -172,7 +172,7 @@ h2 {
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   color: #928374;
 }
 
@@ -184,7 +184,7 @@ h2 {
   background: #1d2021;
   color: #ebdbb2;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
 }
 
 .manage-btn {
@@ -194,7 +194,7 @@ h2 {
   text-decoration: underline;
   cursor: pointer;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
 }
 
 .mode-toggle {
@@ -211,7 +211,7 @@ h2 {
   color: #ebdbb2;
   cursor: pointer;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
 }
 
 .mode-btn:active {

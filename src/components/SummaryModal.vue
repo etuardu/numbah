@@ -59,7 +59,7 @@ const store = useGameStore()
 
 .modal h2 {
   margin-bottom: 1.5rem;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   color: #fabd2f;
   line-height: 1.6;
 }
@@ -77,13 +77,13 @@ const store = useGameStore()
 }
 
 .stat-value {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
   color: #fabd2f;
 }
 
 .stat-label {
-  font-size: 0.45rem;
+  font-size: 0.6rem;
   color: #928374;
   margin-top: 0.25rem;
 }
@@ -99,7 +99,7 @@ const store = useGameStore()
   padding: 0.75rem;
   border-radius: 0;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
+  font-size: 0.9rem;
   cursor: pointer;
   border: 2px solid;
 }

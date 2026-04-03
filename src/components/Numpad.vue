@@ -68,7 +68,7 @@ defineExpose({ reset })
 
 .display {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   padding: 1rem;
   height: 4.5rem;
@@ -106,7 +106,7 @@ defineExpose({ reset })
 
 .action-btn {
   padding: 1rem;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   border-radius: 0;
   cursor: pointer;
   border: 2px solid #665c54;

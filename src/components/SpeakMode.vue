@@ -199,7 +199,7 @@ defineExpose({ stopListening })
 }
 
 .number-display {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
   color: #fabd2f;
@@ -209,7 +209,7 @@ defineExpose({ stopListening })
   padding: 1rem;
   border-radius: 0;
   margin-bottom: 1rem;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   line-height: 1.8;
 }
 
@@ -230,7 +230,7 @@ defineExpose({ stopListening })
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1rem;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
 }
 
 .comparison-row {
@@ -246,7 +246,7 @@ defineExpose({ stopListening })
 
 .comparison-value {
   font-weight: bold;
-  font-size: 0.65rem;
+  font-size: 0.85rem;
 }
 
 .audio-buttons {
@@ -265,7 +265,7 @@ defineExpose({ stopListening })
   color: #ebdbb2;
   cursor: pointer;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.45rem;
+  font-size: 0.6rem;
 }
 
 .audio-btn:active {
@@ -285,7 +285,7 @@ defineExpose({ stopListening })
   background: #83a598;
   color: #1d2021;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   cursor: pointer;
   margin-top: 0.5rem;
 }
@@ -302,14 +302,14 @@ defineExpose({ stopListening })
 .instruction {
   color: #928374;
   margin-bottom: 0.5rem;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
 }
 
 .interim {
   color: #665c54;
   font-style: italic;
   min-height: 1.5rem;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
 }
 
 .listen-btn {
@@ -319,7 +319,7 @@ defineExpose({ stopListening })
   background: #83a598;
   color: #1d2021;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   cursor: pointer;
 }
 
@@ -342,6 +342,6 @@ defineExpose({ stopListening })
   text-decoration: underline;
   cursor: pointer;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
 }
 </style>
