@@ -1,5 +1,8 @@
 # numbah
 
+[![CI](https://github.com/etuardu/numbah/actions/workflows/ci.yml/badge.svg)](https://github.com/etuardu/numbah/actions/workflows/ci.yml)
+[![coverage](https://codecov.io/gh/etuardu/numbah/graph/badge.svg)](https://codecov.io/gh/etuardu/numbah)
+
 A web app for practicing Russian number words. Test your ability to read and recognize numbers in Russian with two game modes: **Speak** (see a number, say it aloud) and **Numpad** (hear a number, type it).
 
 ## Features
